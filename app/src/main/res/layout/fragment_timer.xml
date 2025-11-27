@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvCycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycle: 0"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:id="@+id/tvPhase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/tvCycle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25:00"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhase"
+        app:layout_constraintBottom_toTopOf="@+id/buttonContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="64dp">
+
+        <Button
+            android:id="@+id/btnStartFocus"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Start Focus"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPause"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text="Pause"
+                android:enabled="false"
+                android:textColor="@color/material_dynamic_neutral10"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/material_dynamic_neutral10"
+                android:text="Stop"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/btnShortBreak"
+                android:layout_width="95dp"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_height="60dp"
+                android:text="Short Break"
+                android:textSize="14dp"
+                android:fontFamily="sans-serif-condensed"
+                android:enabled="false"
+                android:textColor="@color/material_dynamic_neutral10"
+                android:layout_marginEnd="10dp" />
+
+
+            <Button
+                android:id="@+id/btnLongBreak"
+                android:layout_width="95dp"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_height="60dp"
+                android:text="Long Break"
+                android:textColor="@color/material_dynamic_neutral10"
+                android:textSize="14dp"
+                android:fontFamily="sans-serif-condensed"
+                android:enabled="false"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
