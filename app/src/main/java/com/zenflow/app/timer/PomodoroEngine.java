@@ -75,7 +75,7 @@ public class PomodoroEngine {
         if (currentState.running && !currentState.paused) {
             countDownTimer.cancel();
             currentState.paused = true;
-            timerStateLiveData.postValue(new TimerState(
+            timerStateLiveData.setValue(new TimerState(
                 currentState.phase,
                 currentState.remainingSeconds,
                 currentState.cycleNumber,
@@ -127,7 +127,7 @@ public class PomodoroEngine {
             @Override
             public void onTick(long millisUntilFinished) {
                 currentState.remainingSeconds = (int) (millisUntilFinished / 1000);
-                timerStateLiveData.postValue(new TimerState(
+                timerStateLiveData.setValue(new TimerState(
                     currentState.phase,
                     currentState.remainingSeconds,
                     currentState.cycleNumber,
@@ -140,7 +140,7 @@ public class PomodoroEngine {
             public void onFinish() {
                 currentState.remainingSeconds = 0;
                 currentState.running = false;
-                timerStateLiveData.postValue(new TimerState(
+                timerStateLiveData.setValue(new TimerState(
                     currentState.phase,
                     0,
                     currentState.cycleNumber,
@@ -157,7 +157,7 @@ public class PomodoroEngine {
         };
 
         countDownTimer.start();
-        timerStateLiveData.postValue(new TimerState(
+        timerStateLiveData.setValue(new TimerState(
             currentState.phase,
             currentState.remainingSeconds,
             currentState.cycleNumber,

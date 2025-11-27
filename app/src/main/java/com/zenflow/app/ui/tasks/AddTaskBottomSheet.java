@@ -44,7 +44,7 @@ public class AddTaskBottomSheet extends BottomSheetDialogFragment {
         TaskListViewModelFactory factory = new TaskListViewModelFactory(
                 ((MainActivity) requireActivity()).getRepository()
         );
-        viewModel = new ViewModelProvider(requireParentFragment(), factory).get(TaskListViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity(), factory).get(TaskListViewModel.class);
 
         // Setup category spinner
         String[] categories = {"Work", "Study", "Personal", "Exercise", "Other"};

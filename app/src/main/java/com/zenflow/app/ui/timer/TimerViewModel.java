@@ -61,8 +61,9 @@ public class TimerViewModel extends AndroidViewModel implements PomodoroEngine.T
 
         // Create session record
         SessionEntity session = new SessionEntity();
-        if (selectedTask.getValue() != null) {
-            session.taskId = selectedTask.getValue().id;
+        TaskEntity task = selectedTask.getValue();
+        if (task != null) {
+            session.taskId = task.id;
         } else {
             session.taskId = null; // No specific task
         }
@@ -72,7 +73,9 @@ public class TimerViewModel extends AndroidViewModel implements PomodoroEngine.T
         session.durationMinutes = settingsPreferences.getFocusMinutes();
 
         repository.insertSession(session, sessionId -> {
-            currentSessionId = sessionId;
+             if (sessionId > 0) {
+                currentSessionId = sessionId;
+            }
         });
     }
 
@@ -95,7 +98,9 @@ public class TimerViewModel extends AndroidViewModel implements PomodoroEngine.T
         session.durationMinutes = duration;
 
         repository.insertSession(session, sessionId -> {
-            currentSessionId = sessionId;
+            if (sessionId > 0) {
+                currentSessionId = sessionId;
+            }
         });
     }
 
